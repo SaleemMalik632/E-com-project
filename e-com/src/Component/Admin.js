@@ -18,9 +18,19 @@ const Admin = () => {
                 Price: price.current.value,
                 Stock: Stock.current.value,
                 Description: Description.value,
-                imge: imge.current.files[0] 
-            }    
-
+                imge: imge.current.files[0]
+            }
+            try {
+                const response = fetch('http://localhost:8000/saveData', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Data) })
+                if (response.ok) { 
+                       
+                    alert('Data is Save in DataBase ');
+                } else {
+                    alert('Error in Saveing Data')
+                }
+            } catch (Error) {
+                alert('Error in the Data Saving Request') 
+            }
 
         } else {
             alert('Please full the forms ')
