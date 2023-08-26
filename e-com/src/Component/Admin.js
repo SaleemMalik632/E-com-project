@@ -10,26 +10,26 @@ const Admin = () => {
     const Description = useRef(null);
     const imge = useRef(null);
 
-    const saveform = (event) => {
+    async function saveform(event) {
         event.preventDefault();
         if (name.current.value !== '' && price.current.value !== '' && Stock.current.value !== '' && Description.current.value !== '' && imge.current.files.length > 0) {
-            const Data = {
-                Name: name.current.value,
-                Price: price.current.value,
-                Stock: Stock.current.value,
-                Description: Description.value,
-                imge: imge.current.files[0]
-            }
+            const Data = new FormData();
+            Data.append('Name', name.current.value);
+            Data.append('Price', price.current.value);
+            Data.append('Stock', Stock.current.value);
+            Data.append('Description', Description.current.value);
+            Data.append('image', imge.current.files[0]);
             try {
-                const response = fetch('http://localhost:8000/saveData', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Data) })
-                if (response.ok) { 
-                       
+                const response = await fetch('http://localhost:8000/SaveData', { method: 'POST', body: Data })
+                if (response.ok) {
+                    const redata = response.json();
+                    console.log(redata);
                     alert('Data is Save in DataBase ');
                 } else {
                     alert('Error in Saveing Data')
                 }
             } catch (Error) {
-                alert('Error in the Data Saving Request') 
+                alert('Error in the Data Saving Request')
             }
 
         } else {
