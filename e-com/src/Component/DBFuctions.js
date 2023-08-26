@@ -10,6 +10,22 @@ function insertData(data) {
         console.log('Data inserted successfully');
     });
 }  
+
+function GetData(){
+    const sql  = 'selct * from Product';
+    pool.query(sql , (error , results)=>{
+        if (error) {
+         console.log('Error in Geting Data');
+        }
+        console.log('Data is loded sccful');
+    })
+}
+
+
+
+
+
+
 module.exports = {
     insertData,
 };
