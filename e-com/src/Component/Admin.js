@@ -25,7 +25,7 @@ const Admin = () => {
                     const redata = response.json();
                     console.log(redata);
                     alert('Data is Save in DataBase ');
-                } else {
+                } else { 
                     alert('Error in Saveing Data')
                 }
             } catch (Error) {

@@ -2,7 +2,7 @@ import React from 'react'
 import { ToggleButtonGroup } from '@mui/material';
 import MuiToggleButton from '@mui/material/ToggleButton';
 import { styled } from '@mui/material/styles';
-import Admin from './Admin';
+import Admin from './Admin'; 
 
 
 const Header = () => {
@@ -31,7 +31,7 @@ const Header = () => {
                     <ToggleButton value='User' selectedColor="#00abc0">User</ToggleButton>
                 </ToggleButtonGroup>
             </div>
-            {alignment === 'User' && 'This is user  '}
+            {alignment === 'User' && 'User side '} 
             {alignment === 'Admin' && <Admin />}
         </>
     )
