@@ -32,7 +32,7 @@ const Header = () => {
                 </ToggleButtonGroup>
             </div>
             {alignment === 'User' && 'User side '} 
-            {alignment === 'Admin' && <Admin />}
+            {alignment === 'Admin' && <Admin />} 
         </>
     )
 }
